@@ -1,0 +1,28 @@
+public class Logger {
+    private static Logger instance; // the single instance of the class
+    private static FileWriter writer; // the file writer for logging
+
+    private Logger() {
+        try {
+            writer = new FileWriter("log.txt");
+        } catch (IOException e) {
+            e.printStackTrac();
+        }
+    } // private constructor to prevent instantiation from outside
+
+    public static Logger getInstance() {
+        if (instance == null) {
+            instance = new Logger();
+        }
+        return instance;
+    }
+
+    public void log(String message) {
+        try {
+            writer.write(message + "\n");
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
