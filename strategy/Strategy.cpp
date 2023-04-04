@@ -24,7 +24,7 @@ public:
 		meow();
 	}
 	void meow() {
-		cout << "Meow" << endl;
+		cout << "Meow Meow" << endl;
 	}
 };
 
